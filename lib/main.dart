@@ -21,16 +21,25 @@ class MagicBall extends StatefulWidget {
 }
 
 class _MagicBallState extends State<MagicBall> {
-  int BallPicture = 1;
+  int ballPicture = 1;
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: <Widget>[
-        Expanded(
-          child: Image.asset('images/ball$BallPicture.png'),
-        )
-      ],
+    return Center(
+      child: Row(
+        children: <Widget>[
+          Expanded(
+            child: FlatButton(
+              onPressed: (){
+                setState(() {
+                  ballPicture = Random().nextInt(5) + 1;
+                });
+              },
+              child: Image.asset('images/ball$ballPicture.png'),
+            ),
+          )
+        ],
+      ),
     );
   }
 }
